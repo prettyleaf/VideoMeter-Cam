@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- .NET Framework 3.5: есть в Windows 7 «из коробки»; на Windows 10/11 программа запускается на .NET 4.x (см. App.config) -->
+    <TargetFramework>net35</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>SigmaLabCam</AssemblyName>
+    <RootNamespace>SigmaLabCam</RootNamespace>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Product>СигмаЛаб-Кам (SigmaLab Cam)</Product>
+    <AssemblyTitle>СигмаЛаб-Кам — измерение и коррекция координатных искажений ТВ-изображения</AssemblyTitle>
+    <Description>Учебная программа кафедры телевидения и управления ТУСУР: захват изображения с камеры, измерение дисторсии (Distortion), калибровка камеры и выпрямление изображения, коэффициенты координатных искажений, модель сферических искажений.</Description>
+    <Company>ТУСУР, кафедра телевидения и управления (ТУ)</Company>
+    <Authors>Колесников И.Д.</Authors>
+    <Copyright>© 2026 ТУСУР, кафедра телевидения и управления. Разработчик: Колесников И.Д.</Copyright>
+    <DebugType>none</DebugType>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <SatelliteResourceLanguages>ru</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <EmbeddedResource Include="Resources\app.ico" LogicalName="SigmaLabCam.app.ico" />
+    <EmbeddedResource Include="Resources\help.html" LogicalName="SigmaLabCam.help.html" />
+    <EmbeddedResource Include="Resources\license.txt" LogicalName="SigmaLabCam.license.txt" />
+  </ItemGroup>
+</Project>

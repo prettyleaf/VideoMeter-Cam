@@ -1,0 +1,96 @@
+# Сборка релиза СигмаЛаб-Кам: тесты ядра → SigmaLabCam.exe → портативный архив и установщик → файлы релиза на GitHub.
+# Выпуск версии: поднять <Version> в src/SigmaLabCam.csproj, затем
+#   git tag -a v1.0.2 -m "Что нового" && git push origin v1.0.2
+# Тег должен совпадать с <Version>; текст аннотации тега становится описанием релиза.
+# Ручной запуск (Actions › Release › Run workflow) только собирает файлы — они в артефактах запуска.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_NOLOGO: 1
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 8.0.x
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: 3.x
+
+      - name: Версия
+        id: ver
+        shell: pwsh
+        run: |
+          $v = (Select-String -Path src/SigmaLabCam.csproj -Pattern '<Version>(.+)</Version>').Matches[0].Groups[1].Value
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne "v$v") {
+            throw "Тег $env:GITHUB_REF_NAME не совпадает с версией $v в src/SigmaLabCam.csproj"
+          }
+          "version=$v" >> $env:GITHUB_OUTPUT
+
+      - name: Тесты ядра
+        run: dotnet run --project tests/CoreTests.csproj -c Release
+
+      - name: Сборка SigmaLabCam.exe
+        run: dotnet build src/SigmaLabCam.csproj -c Release -nologo -v q
+
+      - name: Портативная версия
+        shell: python
+        run: |
+          import os, shutil, zipfile
+          name = "SigmaLabCam-${{ steps.ver.outputs.version }}-portable"
+          port = os.path.join("dist", name)
+          os.makedirs(port)
+          for f in ("SigmaLabCam.exe", "SigmaLabCam.exe.config"):
+              shutil.copy(os.path.join("src", "bin", "Release", "net35", f), port)
+          shutil.copy(os.path.join("installer", "ПРОЧТИ.txt"), port)
+          shutil.copy(os.path.join("src", "Resources", "license.txt"), os.path.join(port, "ЛИЦЕНЗИЯ.txt"))
+          with zipfile.ZipFile(port + ".zip", "w", zipfile.ZIP_DEFLATED) as z:
+              for f in sorted(os.listdir(port)):
+                  z.write(os.path.join(port, f), name + "/" + f)
+
+      - name: Установщик (Inno Setup)
+        shell: pwsh
+        run: |
+          function Find-Iscc {
+            Get-ChildItem "${env:ProgramFiles(x86)}\Inno Setup *\ISCC.exe", "$env:ProgramFiles\Inno Setup *\ISCC.exe" -ErrorAction SilentlyContinue |
+              Select-Object -First 1 -ExpandProperty FullName
+          }
+          $iscc = Find-Iscc
+          if (-not $iscc) { choco install innosetup -y --no-progress | Out-Null; $iscc = Find-Iscc }
+          if (-not $iscc) { throw "Не найден Inno Setup" }
+          & $iscc "/DAppVersion=${{ steps.ver.outputs.version }}" "/O$env:GITHUB_WORKSPACE\dist" installer\SigmaLabCam.iss
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: SigmaLabCam-${{ steps.ver.outputs.version }}
+          path: |
+            dist/*.exe
+            dist/*.zip
+
+      - name: Релиз на GitHub
+        if: github.ref_type == 'tag'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $v = '${{ steps.ver.outputs.version }}'
+          $files = "dist/SigmaLabCam-$v-setup.exe", "dist/SigmaLabCam-$v-portable.zip"
+          # checkout получает тег без аннотации — забираем его целиком, чтобы взять из него описание релиза
+          git fetch --force origin "refs/tags/${tag}:refs/tags/${tag}"
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -eq 0) { gh release upload $tag $files --clobber }
+          else { gh release create $tag $files --title "СигмаЛаб-Кам $v" --notes-from-tag }
