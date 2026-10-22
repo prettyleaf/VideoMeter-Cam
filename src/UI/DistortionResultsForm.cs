@@ -5,10 +5,10 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Результаты Distortion: рисунки (как в Imatest), сводка коэффициентов и таблица узлов.</summary>
     public sealed class DistortionResultsForm : Form

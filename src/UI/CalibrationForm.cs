@@ -5,10 +5,10 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>
     /// Калибровка камеры по снимку сетки точек и выпрямление изображения (аналог программы ASRix):

@@ -5,16 +5,16 @@
     <TargetFramework>net35</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-    <AssemblyName>SigmaLabCam</AssemblyName>
-    <RootNamespace>SigmaLabCam</RootNamespace>
+    <AssemblyName>VideoMeterCam</AssemblyName>
+    <RootNamespace>VideoMeterCam</RootNamespace>
     <ApplicationIcon>Resources\app.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
-    <Version>1.0.0</Version>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Product>СигмаЛаб-Кам (SigmaLab Cam)</Product>
-    <AssemblyTitle>СигмаЛаб-Кам — измерение и коррекция координатных искажений ТВ-изображения</AssemblyTitle>
+    <Version>1.2.0</Version>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Product>ВидеоМетр-Кам (VideoMeter Cam)</Product>
+    <AssemblyTitle>ВидеоМетр-Кам — измерение и коррекция координатных искажений ТВ-изображения</AssemblyTitle>
     <Description>Учебная программа кафедры телевидения и управления ТУСУР: захват изображения с камеры, измерение дисторсии (Distortion), калибровка камеры и выпрямление изображения, коэффициенты координатных искажений, модель сферических искажений.</Description>
     <Company>ТУСУР, кафедра телевидения и управления (ТУ)</Company>
     <Authors>Колесников И.Д.</Authors>
@@ -29,8 +29,8 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Drawing" />
-    <EmbeddedResource Include="Resources\app.ico" LogicalName="SigmaLabCam.app.ico" />
-    <EmbeddedResource Include="Resources\help.html" LogicalName="SigmaLabCam.help.html" />
-    <EmbeddedResource Include="Resources\license.txt" LogicalName="SigmaLabCam.license.txt" />
+    <EmbeddedResource Include="Resources\app.ico" LogicalName="VideoMeterCam.app.ico" />
+    <EmbeddedResource Include="Resources\help.html" LogicalName="VideoMeterCam.help.html" />
+    <EmbeddedResource Include="Resources\license.txt" LogicalName="VideoMeterCam.license.txt" />
   </ItemGroup>
 </Project>

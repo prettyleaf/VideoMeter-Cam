@@ -1,6 +1,6 @@
 using System;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Тип пикселей.</summary>
     public enum PixelType

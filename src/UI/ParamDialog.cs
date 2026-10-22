@@ -2,9 +2,9 @@ using System;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Поле ввода числа: принимает и точку, и запятую.</summary>
     public sealed class NumBox : TextBox

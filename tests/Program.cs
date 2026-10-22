@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
 static class T
 {
@@ -218,8 +218,8 @@ static class T
                 for (int i = 0; i < s.PixelCount; i++)
                     s.Planes[c][i] = pt == PixelType.Gray16 ? rng.Next(65536) : (ImageData.IsFloatType(pt) ? (float)(rng.NextDouble() * 1000 - 500) : rng.Next(256));
             var ms = new System.IO.MemoryStream();
-            using (var bw = new System.IO.BinaryWriter(ms)) SigmaLabCam.IO.TiffIO.Write(s, bw);
-            var back = SigmaLabCam.IO.TiffIO.TryRead(ms.ToArray());
+            using (var bw = new System.IO.BinaryWriter(ms)) VideoMeterCam.IO.TiffIO.Write(s, bw);
+            var back = VideoMeterCam.IO.TiffIO.TryRead(ms.ToArray());
             double md = 0;
             if (back != null) for (int c = 0; c < s.Channels; c++) for (int i = 0; i < s.PixelCount; i++) md = Math.Max(md, Math.Abs(s.Planes[c][i] - back.Planes[c][i]));
             Check(back != null && back.Type == pt && md == 0, "tiff roundtrip " + pt);

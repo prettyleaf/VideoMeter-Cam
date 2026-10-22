@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Точка с вещественными координатами (пиксели: центр пикселя (i, j) — точка (i, j)).</summary>
     public struct PointD

@@ -1,6 +1,6 @@
 using System;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Способ пересчёта координат при геометрическом преобразовании.</summary>
     public enum MapMethod

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>
     /// Шаблон калибровочной таблицы (аналог файла ASR-grid.dbf программы ASRix): сетка Cols × Rows точек,

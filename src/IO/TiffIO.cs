@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.IO
+namespace VideoMeterCam.IO
 {
     /// <summary>
     /// Чтение и запись TIFF без сжатия: 8/16 бит, 32 бита float, RGB (8 бит и float).

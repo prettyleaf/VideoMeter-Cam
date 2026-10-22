@@ -1,6 +1,6 @@
 using System;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Формулы методички для коэффициентов координатных искажений, %.</summary>
     public static class Coef
@@ -84,7 +84,7 @@ namespace SigmaLabCam.Core
     }
 }
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Разбор чисел и с точкой, и с запятой.</summary>
     public static class NumParse

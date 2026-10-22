@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
-    /// <summary>Настройки пользователя (%APPDATA%\SigmaLabCam\settings.ini) и профили камер (cameras.ini).</summary>
+    /// <summary>Настройки пользователя (%APPDATA%\VideoMeterCam\settings.ini) и профили камер (cameras.ini).</summary>
     public static class Settings
     {
         public static string LastDir = "";
@@ -28,7 +28,7 @@ namespace SigmaLabCam.UI
 
         private static string Dir
         {
-            get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SigmaLabCam"); }
+            get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "VideoMeterCam"); }
         }
 
         private static string FilePath { get { return Path.Combine(Dir, "settings.ini"); } }
@@ -36,10 +36,18 @@ namespace SigmaLabCam.UI
 
         private static readonly CultureInfo Inv = CultureInfo.InvariantCulture;
 
+        /// <summary>Переносит настройки и профили камер из папки прежнего названия программы (SigmaLabCam).</summary>
+        private static void MigrateOldDir()
+        {
+            string old = Path.Combine(Path.GetDirectoryName(Dir), "SigmaLabCam");
+            if (!Directory.Exists(Dir) && Directory.Exists(old)) Directory.Move(old, Dir);
+        }
+
         public static void Load()
         {
             try
             {
+                MigrateOldDir();
                 if (File.Exists(FilePath))
                     foreach (string line in File.ReadAllLines(FilePath, Encoding.UTF8))
                     {
@@ -115,7 +123,7 @@ namespace SigmaLabCam.UI
             {
                 Directory.CreateDirectory(Dir);
                 var sb = new StringBuilder();
-                sb.AppendLine("# Профили камер СигмаЛаб-Кам: имя|ширина|высота|cx|cy|k1|k2|СКО|точек|дата");
+                sb.AppendLine("# Профили камер ВидеоМетр-Кам: имя|ширина|высота|cx|cy|k1|k2|СКО|точек|дата");
                 foreach (var c in Cameras) sb.AppendLine(c.Serialize());
                 File.WriteAllText(CamerasPath, sb.ToString(), Encoding.UTF8);
             }

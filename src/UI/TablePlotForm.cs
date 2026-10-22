@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Построение графика по таблице значений (например, коэффициенты искажений в зависимости от угла поворота таблицы).</summary>
     public sealed class TablePlotForm : Form

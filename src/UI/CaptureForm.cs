@@ -6,10 +6,10 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Просмотр кадров камеры с вспомогательными линиями для установки таблицы.</summary>
     internal sealed class LivePreview : Control

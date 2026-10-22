@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Text;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     public enum Marker { None, Circle, Square, Diamond, Triangle }
 

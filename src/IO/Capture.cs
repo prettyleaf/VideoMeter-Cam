@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.IO
+namespace VideoMeterCam.IO
 {
     /// <summary>Устройство видеозахвата (веб-камера, плата видеоввода, TV-тюнер).</summary>
     public sealed class CaptureDevice

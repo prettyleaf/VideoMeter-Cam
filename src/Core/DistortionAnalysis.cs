@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     public enum CorrectedImageMode { Always, Never }
 

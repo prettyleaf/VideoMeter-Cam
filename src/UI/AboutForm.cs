@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     public sealed class AboutForm : Form
     {
@@ -38,7 +38,7 @@ namespace SigmaLabCam.UI
             Version v = Assembly.GetExecutingAssembly().GetName().Version;
             var sub = new Label
             {
-                Text = "SigmaLab Cam, версия " + v.Major + "." + v.Minor + "." + v.Build + "\n" +
+                Text = "VideoMeter Cam, версия " + v.Major + "." + v.Minor + "." + v.Build + "\n" +
                        "Программа кафедры телевидения и управления ТУСУР\n" +
                        "Измерение и коррекция координатных искажений",
                 ForeColor = Color.FromArgb(225, 225, 245),
@@ -96,7 +96,7 @@ namespace SigmaLabCam.UI
     {
         public static string LoadText()
         {
-            using (Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream("SigmaLabCam.license.txt"))
+            using (Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream("VideoMeterCam.license.txt"))
             using (var r = new StreamReader(s, Encoding.UTF8))
                 return r.ReadToEnd();
         }
@@ -148,10 +148,10 @@ namespace SigmaLabCam.UI
         {
             try
             {
-                string dir = Path.Combine(Path.GetTempPath(), "SigmaLabCam");
+                string dir = Path.Combine(Path.GetTempPath(), "VideoMeterCam");
                 Directory.CreateDirectory(dir);
-                string file = Path.Combine(dir, "SigmaLabCam_help.html");
-                using (Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream("SigmaLabCam.help.html"))
+                string file = Path.Combine(dir, "VideoMeterCam_help.html");
+                using (Stream s = Assembly.GetExecutingAssembly().GetManifestResourceStream("VideoMeterCam.help.html"))
                 using (var r = new StreamReader(s, Encoding.UTF8))
                     File.WriteAllText(file, r.ReadToEnd(), new UTF8Encoding(true));
                 string target = file;

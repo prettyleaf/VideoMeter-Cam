@@ -1,4 +1,4 @@
-# СигмаЛаб-Кам (SigmaLab Cam)
+# ВидеоМетр-Кам (VideoMeter Cam)
 
 Учебная программа кафедры телевидения и управления (ТУ) ТУСУР для лабораторной работы № 4
 «Измерение и коррекция координатных искажений в телевизионном изображении программными средствами».
@@ -11,7 +11,7 @@
 
 ## Принцип
 
-Как и СигмаЛаб, программа даёт **инструменты**, а не выполняет лабораторную работу: студент сам снимает таблицы,
+Как и ВидеоМетр, программа даёт **инструменты**, а не выполняет лабораторную работу: студент сам снимает таблицы,
 выделяет рабочую зону, расставляет точки, переносит результаты в таблицы и строит графики — по методичке.
 Команды названы так же, как в Imatest и ASRix (Pattern, Decentering calculation, Camera Management, Point List, Rectify…),
 чтобы их легко было найти по тексту методички. Серий измерений «под пункты методички» нет.
@@ -45,13 +45,13 @@ Windows 7 SP1, 8.1, 10, 11 (32 и 64 бит). Написано на C# / WinForm
 Нужен .NET SDK 8+ (на Linux или Windows). Установщик — Inno Setup 6 (на Linux через wine).
 
 ```sh
-./build.sh          # Linux: тесты ядра, SigmaLabCam.exe, ../dist/*-portable.zip и ../dist/*-setup.exe
+./build.sh          # Linux: тесты ядра, VideoMeterCam.exe, ../dist/*-portable.zip и ../dist/*-setup.exe
 build.cmd           # Windows
 ```
 
-Результат: `src/bin/Release/net35/SigmaLabCam.exe` (+ `SigmaLabCam.exe.config`, он обязателен рядом с exe).
+Результат: `src/bin/Release/net35/VideoMeterCam.exe` (+ `VideoMeterCam.exe.config`, он обязателен рядом с exe).
 
-Релиз собирает GitHub Actions (`.github/workflows/release.yml`): поднять `<Version>` в `src/SigmaLabCam.csproj`, закоммитить и
+Релиз собирает GitHub Actions (`.github/workflows/release.yml`): поднять `<Version>` в `src/VideoMeterCam.csproj`, закоммитить и
 отправить тег той же версии — установщик и портативный архив появятся в файлах релиза.
 
 ```sh
@@ -73,4 +73,4 @@ installer  скрипт Inno Setup
 tools      make_icon.py — значок программы
 ```
 
-`SigmaLabCam.exe --shots <папка>` — служебный режим самопроверки интерфейса (снимки окон на синтетических данных).
+`VideoMeterCam.exe --shots <папка>` — служебный режим самопроверки интерфейса (снимки окон на синтетических данных).

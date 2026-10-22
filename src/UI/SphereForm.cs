@@ -3,10 +3,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>
     /// Исследование модели сферических искажений (вместо файла Mathcad «Дисторсия»): изменяя R, наблюдать

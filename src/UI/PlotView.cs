@@ -4,9 +4,9 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using SigmaLabCam.IO;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Элемент для показа графика (Plot) или рисунка (Figure) с контекстным меню экспорта.</summary>
     public sealed class PlotView : Control

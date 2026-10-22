@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>
     /// Расчёт коэффициентов искажений по координатам точек (вместо файлов Mathcad): формулы (1.6)–(1.11),

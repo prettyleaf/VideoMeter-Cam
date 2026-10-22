@@ -5,9 +5,9 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using SigmaLabCam.UI;
+using VideoMeterCam.UI;
 
-namespace SigmaLabCam
+namespace VideoMeterCam
 {
     internal static class Program
     {
@@ -23,7 +23,7 @@ namespace SigmaLabCam
             Settings.Load();
             try
             {
-                using (Stream st = Assembly.GetExecutingAssembly().GetManifestResourceStream("SigmaLabCam.app.ico"))
+                using (Stream st = Assembly.GetExecutingAssembly().GetManifestResourceStream("VideoMeterCam.app.ico"))
                     if (st != null) Theme.AppIcon = new Icon(st);
             }
             catch { }

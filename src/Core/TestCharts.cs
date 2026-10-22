@@ -1,6 +1,6 @@
 using System;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Параметры имитации съёмки тестовой таблицы камерой.</summary>
     public sealed class ShotSpec

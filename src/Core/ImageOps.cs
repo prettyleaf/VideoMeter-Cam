@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>Простые преобразования изображения: тип, обрезка, отражение, поворот.</summary>
     public static class ImageOps

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SigmaLabCam.Core
+namespace VideoMeterCam.Core
 {
     /// <summary>
     /// Радиальная дисторсия объектива в форме методички (1.4), (1.5) и модуля Distortion программы Imatest:

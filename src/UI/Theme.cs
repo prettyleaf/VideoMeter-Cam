@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Оформление в фирменных цветах ТУСУР (основной — PANTONE 2104 C, #3C388D).</summary>
     public static class Theme

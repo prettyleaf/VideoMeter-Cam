@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Модуль Distortion: выбор изображения и рабочей зоны, настройки, поиск узлов, запуск анализа.</summary>
     public sealed class DistortionForm : Form

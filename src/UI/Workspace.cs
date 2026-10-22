@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using SigmaLabCam.Core;
-using SigmaLabCam.IO;
+using VideoMeterCam.Core;
+using VideoMeterCam.IO;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Открытое изображение: данные, выделение, точки, одноуровневая отмена.</summary>
     public sealed class ImageDoc

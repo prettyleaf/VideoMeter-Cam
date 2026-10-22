@@ -4,12 +4,12 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>Сообщения, форматирование чисел, сохранение текстовых файлов.</summary>
     public static class Ui
     {
-        public const string AppName = "СигмаЛаб-Кам";
+        public const string AppName = "ВидеоМетр-Кам";
 
         public static void Error(IWin32Window owner, string msg)
         {

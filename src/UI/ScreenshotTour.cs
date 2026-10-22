@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using SigmaLabCam.Core;
+using VideoMeterCam.Core;
 
-namespace SigmaLabCam.UI
+namespace VideoMeterCam.UI
 {
     /// <summary>
     /// Служебный режим «--shots папка»: программа сама проходит основные шаги работы на синтетических данных
@@ -206,7 +206,7 @@ namespace SigmaLabCam.UI
                 current = f;
             });
             steps.Add(() => shot(current, "18_table_plot"));
-            bool noCapture = Environment.GetEnvironmentVariable("SIGMALAB_NO_CAPTURE") == "1";
+            bool noCapture = Environment.GetEnvironmentVariable("VIDEOMETER_NO_CAPTURE") == "1";
             steps.Add(() =>
             {
                 current.Close();
